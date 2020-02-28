@@ -103,6 +103,14 @@ p {
   margin-top: 10px;
 }
 
+/* ユーザー一覧ページ */
+
+#table-users {
+  td {
+    vertical-align: middle;
+  }  
+}
+
 /* error_messages */
 
 #error_explanation {
