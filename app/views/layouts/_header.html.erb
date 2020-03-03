@@ -14,12 +14,11 @@
               アカウント <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Show", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user)  %></li>
-              <li><%= link_to "Users", users_path %></li>
+              <li><%= link_to "ユーザー情報更新", edit_user_path(current_user)  %></li>
+              <li><%= link_to "勤怠情報", users_path %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
+                <%= link_to "ログアウト", logout_path, method: :delete %>
               </li>
             </ul>
           </li>
