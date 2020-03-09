@@ -19,7 +19,15 @@
             <tr>
               <td><%= l(day.worked_on, format: :short) %></td>
               <td><%= $days_of_the_week[day.worked_on.wday] %></td>
-              <% if !current_user.admin? && (Date.current < day.worked_on) %>
+              <% if !current_user.admin? %>
+                <% if Date.current < day.worked_on %>
+                  <td><%= attendance.time_field :started_at, readonly: true, class: "form-control" %></td>
+                  <td><%= attendance.time_field :finished_at, readonly: true, class: "form-control" %></td>
+                <% else %>
+                  <td><%= attendance.time_field :started_at, class: "form-control" %></td>
+                  <td><%= attendance.time_field :finished_at, class: "form-control" %></td>
+                <% end %>
+              <% else %>
                 <% if Date.current < day.worked_on %>
                   <td><%= attendance.time_field :started_at, readonly: true, class: "form-control" %></td>
                   <td><%= attendance.time_field :finished_at, readonly: true, class: "form-control" %></td>
@@ -28,13 +36,6 @@
                   <td><%= attendance.time_field :finished_at, class: "form-control" %></td>
                 <% end %>
               <% end %>
-                <% if Date.current < day.worked_on %>
-                  <td><%= attendance.time_field :started_at, readonly: true, class: "form-control" %></td>
-                  <td><%= attendance.time_field :finished_at, readonly: true, class: "form-control" %></td>
-                <% else %>
-                  <td><%= attendance.time_field :started_at, class: "form-control" %></td>
-                  <td><%= attendance.time_field :finished_at, class: "form-control" %></td>
-                <% end %>
               <td>
                 <% if day.started_at.present? && day.finished_at.present? %>
                   <%= working_times(day.started_at, day.finished_at) %>
