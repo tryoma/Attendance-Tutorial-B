@@ -1,5 +1,18 @@
 <% provide(:title, 'All Users') %>
+
+<% if params[:name].present? %>
+<h1>検索結果</h1>
+<% else %>
 <h1>ユーザー一覧</h1>
+<% end %>
+
+<div>
+  <%= form_tag(users_path, method: "get") do %>
+  <%= label_tag :name, "名前" %>
+  <%= text_field_tag :name, params[:name] %>
+  <%= submit_tag "検索" %>
+  <% end %>
+</div>
 
 <div class="col-md-10 col-md-offset-1">
   <%= will_paginate %>
