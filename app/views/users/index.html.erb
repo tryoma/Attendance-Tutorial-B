@@ -6,10 +6,11 @@
 <h1>ユーザー一覧</h1>
 <% end %>
 
-<div>
+<div id="search-users">
   <%= form_tag(users_path, method: "get") do %>
-  <%= label_tag :name, "名前" %>
-  <%= text_field_tag :name, params[:name] %>
+  <%= label_tag :name, "ユーザー名検索" %>
+  <br>
+  <%= text_field_tag :name, params[:name], :placeholder => "キーワードを入力" %>
   <%= submit_tag "検索" %>
   <% end %>
 </div>

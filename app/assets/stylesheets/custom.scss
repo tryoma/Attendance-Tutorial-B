@@ -82,6 +82,8 @@ p {
 
 /* ユーザー情報テーブル */
 
+
+
 .user-table {
   vertical-align: middle;
   text-align: center;
@@ -109,6 +111,10 @@ p {
   td {
     vertical-align: middle;
   }  
+}
+
+#search-users {
+  float: right;
 }
 
 /* error_messages */
